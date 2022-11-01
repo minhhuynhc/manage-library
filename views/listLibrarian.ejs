@@ -1,0 +1,16 @@
+<body>
+    <h2>List Librarian</h2>
+    <% for (const librarian of librarians) {%>
+        <h3>Name: <%= librarian.Name %></h3>
+        <p>ID: <%= librarian.ID %></p>
+
+        <% let d=0 %>
+        <% for (const j of libraries){ %>
+            <% if (librarian.ID == j.librarianID) { %>
+                <% d++ %>
+            <% } %>        
+        <% } %>
+        <p>Number of library managering: <b style="color: rgb(53, 8, 255);"><%= d %></b> </p>
+    <%}%>
+</body>
+</html>

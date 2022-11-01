@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ListLibrary</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        const detail = (id) => {
+            window.open('http://localhost:5000/manager/detailLibrary'+'?'+'id='+id);
+        }
+        const deleteLibrary = async (id) => {
+            // alert(id)
+            // alert("chua hoan tat")
+            await $.ajax({
+                url: "http://localhost:5000/manager/deleteLibrary",
+                type: "DELETE",
+                data: JSON.stringify({ "id": id }),
+                dataType: "json",
+                contentType:"application/json",
+                success: function (result) {
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+                }
+            });
+            location.reload()
+        }
+    </script>
+</head>
+<body>
+    <h2>List Library</h2>
+    <% for (const library of libraries) {%>
+        <h3>Name: <%= library.Name %></h3>
+        <p>Librarian: <%= library.librarianID %></p>
+        <button onclick="detail('<%= library.id %>' )">Detail</button>
+        <button onclick = "deleteLibrary('<%= library.id %>')">Delete</button>
+    <%}%>
+</body>
+</html>

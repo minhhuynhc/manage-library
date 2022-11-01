@@ -1,0 +1,11 @@
+<h2>Librarian view:</h2>
+<body>
+<form action="/librarian" method="POST" enctype="multipart/form-data">
+  <label for="create">Choose what to do:</label>
+  <select name="action" id="">
+    <option value="createBook">Add book</option>
+    <option value="createStudent">Create student</option>
+  </select>
+  <button type="submit" name="ID" value="<%= ID %>" >submit</button>
+</form>
+</body>

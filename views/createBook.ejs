@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>CREATE BOOK</h2>
+    <form action="/librarian/createBook" method="POST" enctype="multipart/form-data">
+        <div>
+            <label>BookName:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <% console.log(libraries,'???') %>
+            <label for="create">You are managering these librares, which do you want to add this book?</label>
+            <select name="libraryName">
+                <% for (let i=0; i<= libraries.length; i++) { %>
+                    <option value="<%= libraries[i] %>" > <%= libraries[i] %> </option>
+                <% } %>    
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" >submit</button>
+    </form>
+</body>
+</html>

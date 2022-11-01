@@ -1,0 +1,19 @@
+
+<h2 style="text-align: center;"><i>Welcome <b style="color: blue;"> <%= name %></b></i></h2>
+<div>
+    <p><b>You are borowing:</b></p>
+    <% if (number>1) { %>
+    <% for (let i=1; i<= books.length; i++) { %>
+        <p><%= i %> . <%= books[i-1] %></p>
+    <% } %>
+    <% } else { if(number==1){%> <p> 1.<%= books %></p> <% }} %>
+</div>
+<div>Total: <b><%= number %> </b></div>
+<br>
+    What do you want to do?
+<div>
+    <form action="/student/studentAction" method="POST" enctype="multipart/form-data">
+    <button type="submit" name="borow" value="<%= name %>">Borow</button>
+    <button type="submit" name="return" value="<%= name %>">Return</button>
+    </form>
+</div>
